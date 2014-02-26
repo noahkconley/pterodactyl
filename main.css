@@ -1,0 +1,27 @@
+#footbar{
+    text-align:center;
+    width:100%;
+    margin:0;
+    padding:0;
+    display:table;
+    border-collapse:collapse;
+}
+
+#footbar a{
+    margin:0;
+    display:inline-block;
+    width:25%;
+    border:1px solid black;
+    text-decoration:none;
+    color:black;
+}
+
+#footbar a img{
+    width:100%;
+    margin:0;
+    display:table-cell
+}
+
+#footbar span{
+    margin:0;
+}
