@@ -1,27 +1,17 @@
-#footbar{
-    text-align:center;
-    width:100%;
-    margin:0;
-    padding:0;
-    display:table;
-    border-collapse:collapse;
+.navbar{
+    text-align:center; 
 }
 
-#footbar a{
-    margin:0;
-    display:inline-block;
-    width:25%;
-    border:1px solid black;
+.col-xs-3{
+    text-align:center;   
+}
+
+.row{
+    margin-left:0px;
+    margin-right:0px;
+}
+
+.collapseLink, .collapseLink:hover{
     text-decoration:none;
-    color:black;
-}
-
-#footbar a img{
-    width:100%;
-    margin:0;
-    display:table-cell
-}
-
-#footbar span{
-    margin:0;
+    color:black
 }
