@@ -1,15 +1,21 @@
+body{
+    padding-bottom:80px;
+}
+
 .top {
 	background-color: #520063;
-	text-align: center;
+    text-align:center;
 }
 .bottom {
 	background-color: #E8D4E3;
-	text-align: center;
+    text-align:center;
 }
 
-.collapseLink, .collapseLink:hover{
-    text-decoration:none;
-    color:black
+.container{
+    padding-left:0px;
+    padding-right:0px;
+    margin-left:0px;
+    margin-right:0px;
 }
 
 .row{
@@ -23,3 +29,7 @@ a:hover { color: #6D6C73; text-decoration: none; }
 a:active { color: #6D6C73; text-decoration: none; } 
 
 a.linka { color: #520063;}
+
+#search-bar{
+    margin-right:14px;
+}
