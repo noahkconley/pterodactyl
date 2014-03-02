@@ -1,9 +1,15 @@
-.navbar{
-    text-align:center; 
+.top {
+	background-color: #520063;
+	text-align: center;
+}
+.bottom {
+	background-color: #E8D4E3;
+	text-align: center;
 }
 
-.col-xs-3{
-    text-align:center;   
+.collapseLink, .collapseLink:hover{
+    text-decoration:none;
+    color:black
 }
 
 .row{
@@ -11,7 +17,9 @@
     margin-right:0px;
 }
 
-.collapseLink, .collapseLink:hover{
-    text-decoration:none;
-    color:black
-}
+a:link { color: #6D6C73; text-decoration: none; } 
+a:visited { color: #6D6C73; text-decoration: none; } 
+a:hover { color: #6D6C73; text-decoration: none; } 
+a:active { color: #6D6C73; text-decoration: none; } 
+
+a.linka { color: #520063;}
