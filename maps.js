@@ -15,7 +15,7 @@ var locateStyle = [
 
 var mapOptions = {
   center: paneraBreadLatLng,
-  zoom: 19,
+  zoom: 17,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   styles: locateStyle
 };
@@ -27,7 +27,7 @@ var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
 var paneraInfoWindowString = 
   '<div id="content">'+
   '<h4>Panera Bread</h4>'+
-  '<div id="windowBodyContent" style="width:500px">'+
+  '<div id="windowBodyContent" style="width:150px">'+
   '<p>'+
   '10% off any purchase'+
   '</p>'+
