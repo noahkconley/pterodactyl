@@ -40,16 +40,16 @@
                     <h4>All Cardholders:</h4>
                     <p>10% Off Any Purchase</p>
                 </div>
-            </a>
-            <div id="collapseOne" class="collapse col-xs-12">
+            
+            <div id="collapseOne" class="collapse black">
                 <p>25% Off Bakery Items after 7PM</p>
                 <h4>Faculty Only:</h4>
                 <p>15% all Breakfast Sandwiches before 11AM</p>
-            </div>
+            </div></a>
         </div> <!-- Discount Information -->
         
         <!-- Business Information -->
-        <div class="row">
+        <div class=" panel panel-default row">
             <h4 class="col-xs-12">Location Info:</h4>
             <div class="row">
                 <p class="col-xs-9">Address:<br>1700 Sherman Avenue<br>Evanston, IL 60201</p>
@@ -59,23 +59,19 @@
             <p class="col-xs-12">Website:    <a href="http://www.panerabread.com">panerabread.com</a></p>
         </div> <!-- Business Information -->
         
-        <div class="row"> <!-- Reminder -->
-            <div class="col-xs-12">
-                <div class="btn-group btn-group-justified">
-                    <div class="btn-group">
-                        <a data-toggle="collapse" href="#collapseTwo">    
-                            <button type="button" class="btn btn-default">I'm going here!</button>
-                        </a>
-                    </div>
+        <div class="panel panel-default row"> <!-- Reminder -->
+            <a data-toggle="collapse" href="#collapseTwo" class="collapseLink col-xs-12">
+                <div class="black">
+                    <h4>I'm going here!</h4>
                 </div>
-            </div>
-            <div id="collapseTwo" class="collapse row col-fix">
-                <h4 class="col-xs-12">Remind me</h4>
+            </a>
+            <div id="collapseTwo" class="collapse row">
+                <h5 class="col-xs-12">Remind me:</h5>
                 <div class="col-xs-8">
-                    <input type="radio" name="choice"> In XXXX minutes <br>
+                    <form class="form-inline"><input type="radio" name="choice">In <input type="text" class="input-small" id="mins" placeholder="30"> minutes</form>
                     <input type="radio" name="choice"> When I'm detected there
                 </div>
-                <button type="button" class="btn btn-default col-xs-4">Set!</button>
+                <button type="button" class="btn btn-default col-xs-3">Set!</button>
             </div>
         </div> <!-- Reminder -->
         

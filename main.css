@@ -41,6 +41,10 @@ body{
     margin-right:0px;
 }
 
+.home-btn{
+    margin-top:8px;   
+}
+
 a:link { color: #6D6C73; text-decoration: none; } 
 a:visited { color: #6D6C73; text-decoration: none; } 
 a:hover { color: #6D6C73; text-decoration: none; } 
@@ -99,11 +103,21 @@ body{
 
 #desc{
     font-family:'Open Sans', Helvetica, Arial, sans-serif;
-    margin-bottom:0px;
+    margin-bottom:10px;
 }
 
 #tron{
-    padding-top:0px;   
+    padding-top:0px;
+    margin-bottom:0px;
+}
+
+#search{
+    height:34px;
+    padding-top:2px;
+}
+
+#mins{
+    width:25px;
 }
 
 .btn-custom {
@@ -121,7 +135,6 @@ body{
     color: #fff !important;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.49);
     -webkit-font-smoothing: antialiased;
-    margin-top:8px;
 }
 
 
