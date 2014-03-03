@@ -6,7 +6,11 @@ $(document).ready(function(){
         else
             $("#chevron").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
 
-        console.log("clicked!");
         collapsed = !collapsed;
     });
+    
+    $("#set").click(function(){
+        alert("Your reminder has been set!");
+        $("#remind").click();
+    })
 });
