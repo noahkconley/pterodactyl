@@ -141,4 +141,19 @@ body{
     -webkit-font-smoothing: antialiased;
 }
 
+.bootstrap-switch > div > span.bootstrap-switch-handle-on{
+    background-color:#530063;   
+}
 
+#map-canvas { 
+    height: 300px;
+    width: 100%; 
+}
+
+#locate-head{
+    margin-bottom:0px;
+}
+
+#locate-body{
+    padding-bottom:0;
+}
