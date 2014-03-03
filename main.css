@@ -93,6 +93,10 @@ body{
     padding-top:15px;
 }
 
+#marker{
+    outline:1px solid black;
+}
+
 #paw{
     height:70px; 
     display:inline-block;
@@ -122,6 +126,10 @@ body{
 
 #mins{
     width:25px;
+}
+
+#collapseTwo{
+    margin-bottom:10px;   
 }
 
 .btn-custom {
