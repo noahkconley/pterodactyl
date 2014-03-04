@@ -15,7 +15,7 @@ var locateStyle = [
 
 var mapOptions = {
   center: paneraBreadLatLng,
-  zoom: 19,
+  zoom: 17,
   mapTypeId: google.maps.MapTypeId.ROADMAP,
   styles: locateStyle
 };
@@ -27,7 +27,7 @@ var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions)
 var paneraInfoWindowString = 
   '<div id="content">'+
   '<h4>Panera Bread</h4>'+
-  '<div id="windowBodyContent" style="width:500px">'+
+  '<div id="windowBodyContent" style="width:150px">'+
   '<p>'+
   '10% off any purchase'+
   '</p>'+
@@ -40,18 +40,21 @@ var paneraWindow =  new google.maps.InfoWindow({
     content: paneraInfoWindowString
 });
 
-var marker = new google.maps.Marker({
-    position: paneraBreadLatLng,
-    map: map,
-    title: 'Panera Bread'
-});
-    
+if(document.cookie === 'paneracookie=test'){
+  var marker = new google.maps.Marker({
+      position: paneraBreadLatLng,
+      map: map,
+      title: 'Panera Bread'
+  });
+}
+
 var H = window.innerHeight - 134;
 H = H+"px";
 document.getElementById("map-canvas").style.height=H;
 
 //click listener for opening panera info window
-google.maps.event.addListener(marker, 'click', function(){paneraWindow.open(map,marker);
+google.maps.event.addListener(marker, 'click', function(){
+    paneraWindow.open(map,marker);
 });
 }
 
