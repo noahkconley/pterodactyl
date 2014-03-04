@@ -1,5 +1,13 @@
 $(document).ready(function(){
     var collapsed = true;
+<<<<<<< HEAD
+=======
+
+    $("#locate-business").click(function(){
+        document.cookie = 'paneracookie=test'
+    });
+
+>>>>>>> origin/locate
     $("#discount").click(function(){
         if (collapsed)
             $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");   
