@@ -4,6 +4,8 @@ function initialize() {
     var andysLatLng = new google.maps.LatLng(42.04855, -87.6814);
     var coldstoneLatLng = new google.maps.LatLng(42.04745, -87.6816);
 
+
+
     //remove all local listings (default setting on google maps)
     var locateStyle = [
         {

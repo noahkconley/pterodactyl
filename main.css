@@ -169,3 +169,22 @@ body{
 #locate-body{
     padding-bottom:0;
 }
+
+.indent{
+    margin-left:5px;
+    color:#989898 ;
+    font-size: 12px;
+}
+
+.last{
+    padding-bottom:5px;
+}
+
+#set{
+    margin-top:5px;
+    margin-bottom:5px;
+}
+
+.brand{
+    margin-right:10px;
+}
