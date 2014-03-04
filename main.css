@@ -132,6 +132,10 @@ body{
     margin-bottom:10px;   
 }
 
+#set{
+    margin-top:5px;   
+}
+
 .btn-custom {
     background-color: hsl(293, 61%, 13%) !important;
     background-repeat: repeat-x;
