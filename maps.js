@@ -40,18 +40,21 @@ var paneraWindow =  new google.maps.InfoWindow({
     content: paneraInfoWindowString
 });
 
-var marker = new google.maps.Marker({
-    position: paneraBreadLatLng,
-    map: map,
-    title: 'Panera Bread'
-});
-    
+if(document.cookie != ""){
+  var marker = new google.maps.Marker({
+      position: paneraBreadLatLng,
+      map: map,
+      title: 'Panera Bread'
+  });
+}
+
 var H = window.innerHeight - 134;
 H = H+"px";
 document.getElementById("map-canvas").style.height=H;
 
 //click listener for opening panera info window
-google.maps.event.addListener(marker, 'click', function(){paneraWindow.open(map,marker);
+google.maps.event.addListener(marker, 'click', function(){
+    paneraWindow.open(map,marker);
 });
 }
 

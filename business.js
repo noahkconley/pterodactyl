@@ -1,5 +1,10 @@
 $(document).ready(function(){
     var collapsed = true;
+
+    $("#locate-business").click(function(){
+        document.cookie = 'paneracookie=test'
+    });
+
     $("#discount").click(function(){
         if (collapsed)
             $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");   
