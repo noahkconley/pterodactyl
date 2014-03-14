@@ -25,42 +25,41 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         
-        <script type="text/javascript" src='browse.js'></script>
+        <script type="text/javascript" src='public/scripts/business.js'></script>
  
-        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="public/stylesheets/main.css">
 	</head>
 
 	<body>
         <div class="container top">
-            <h3 class="head-text">Panera Bread</h3>
+            <h3 class="head-text"></h3>
         </div><!-- /.container-fluid -->
         
         <!-- Discount Information -->
-        <div class="panel panel-default row" id="discount">
-            <a data-toggle="collapse" href="#collapseOne" class="collapseLink col-xs-12">
+        <div class="panel panel-default row" id="advantage">
+            <!-- <a data-toggle="collapse" href="#collapseOne" class="collapseLink col-xs-12">
                 <div class="black">
-                    <h4>All Cardholders:</h4>
-                    <p>10% Off Any Purchase</p>
                 </div>
             
                 <div id="collapseOne" class="collapse black">
-                    <p>25% Off Bakery Items after 7PM</p>
-                    <h4>Faculty Only:</h4>
-                    <p>15% all Breakfast Sandwiches before 11AM</p>
                 </div>
                 <span id="chevron" class="glyphicon glyphicon-chevron-down"></span>
-            </a>
+            </a> -->
         </div> <!-- Discount Information -->
         
         <!-- Business Information -->
         <div class=" panel panel-default row">
             <h4 class="col-xs-12">Location Info:</h4>
             <div class="row">
-                <p class="col-xs-8">Address:<br>1700 Sherman Avenue<br>Evanston, IL 60201</p>
-                <a href="locate.html" id="locate-business"><img class="col-xs-3 brand" src="images/marker_black.png" id="marker"></a>
+                <p class="col-xs-8" id="address"></p>
+                <!-- <a href="locate.html" id="locate-business"> -->
+                    <img class="col-xs-3 brand" src="public/images/marker_black.png" id="marker">
+                <!-- </a> -->
             </div>
-            <p class="col-xs-12">Phone: 847-733-8536</p>
-            <p class="col-xs-12">Website: <a href="http://www.panerabread.com">panerabread.com</a></p>
+            <p class="col-xs-12" id="phone"></p>
+            <p class="col-xs-12" id="email"></p>
+            <p class="col-xs-12" id="website"></p>
+            <p class="col-xs-12" id="usergroup"></p>
         </div> <!-- Business Information -->
         
         <div class="panel panel-default row"> <!-- Reminder -->
@@ -85,10 +84,10 @@
         <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
             <div class="container bottom">
                 <div class="row">
-                    <a class="col-xs-3" href="locate.html"><img class="brand icon" src="images/marker_gray.png" alt="Placeholder"><div>Locate</div></a>
-                    <a class="col-xs-3" href="browse.html"><img class="brand icon" src="images/browse_purple.png" alt="Placeholder"><div>Browse</div></a>
-                    <a class="col-xs-3" href="favorites.html"><img class="brand icon" src="images/star_gray.png" alt="Placeholder"><div>Favorites</div></a>
-                    <a class="col-xs-3" href="settings.html"><img class="brand icon" src="images/gear_gray.png" alt="Placeholder"><div>Settings</div></a>
+                    <a class="col-xs-3" href="locate.html"><img class="brand icon" src="public/images/marker_gray.png" alt="Placeholder"><div>Locate</div></a>
+                    <a class="col-xs-3" href="browse.html"><img class="brand icon" src="public/images/browse_purple.png" alt="Placeholder"><div>Browse</div></a>
+                    <a class="col-xs-3" href="favorites.html"><img class="brand icon" src="public/images/star_gray.png" alt="Placeholder"><div>Favorites</div></a>
+                    <a class="col-xs-3" href="settings.html"><img class="brand icon" src="public/images/gear_gray.png" alt="Placeholder"><div>Settings</div></a>
                 </div>
             </div>
         </nav> <!-- Footer --> 

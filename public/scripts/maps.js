@@ -1,6 +1,6 @@
 function initialize() {
     //coordinates for panera bread (map will center to this as well)
-    var paneraBreadLatLng = new google.maps.LatLng(42.0486, -87.6821);
+    var paneraBreadLatLng = new google.maps.(42.0486, -87.6821);
     var andysLatLng = new google.maps.LatLng(42.04855, -87.6814);
     var coldstoneLatLng = new google.maps.LatLng(42.04745, -87.6816);
 
