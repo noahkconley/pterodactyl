@@ -10,10 +10,10 @@ $(document).ready(function() {
 					var link = 'http://www.northwestern.edu/uservices/wildcard/advantage_discounts/businesses' + nodeList[j].href.slice(nodeList[j].href.lastIndexOf('/'));
 					var title = nodeList[j].text;
 					if (!(title.charAt(0) > 0))
-						$('.panel-heading:contains(' + title.charAt(0) + ')').next('ul').append('<li class="list-group-item">' + title + '</li><input name="business_' + k + '" type="url" value="' + link + '" style="display:none" disabled></input>');
+						$('.panel-heading:contains(' + title.charAt(0) + ')').next('ul').append('<li class="list-group-item">' + title + '</li><input class="bizlink" name="business_' + k + '" type="url" value="' + link + '" style="display:none" disabled></input>');
 					else
 						//href="business.html"
-						$('.panel-heading:first').next('ul').append('<li class="list-group-item">' + title + '</li><input name="business_' + k + '" type="url" value="' + link + '" style="display:none" disabled></input>');
+						$('.panel-heading:first').next('ul').append('<li class="list-group-item">' + title + '</li><input class="bizlink" name="business_' + k + '" type="url" value="' + link + '" style="display:none" disabled></input>');
 					k++;
 				}
 			}
@@ -23,6 +23,6 @@ $(document).ready(function() {
 });
 
 $(document).on('click', '.list-group-item', function() {
-	$(this).next().prop('disabled', false);
+	$(this).next().attr('disabled', false);
 	$('#gotobiz').trigger('click');
 });

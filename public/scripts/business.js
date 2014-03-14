@@ -1,6 +1,11 @@
 $(document).ready(function(){
     var collapsed = true;
 
+    var url = document.URL;
+    var ref = url.substring(url.indexOf('?') + 1, url.indexOf('='));
+    if (localStorage.getItem(ref) != null)
+        $('#favorite').text('Remove from Favorites');
+
     /*
     $("#locate-business").click(function(){
         document.cookie = 'paneracookie=test'
@@ -64,5 +69,25 @@ $(document).ready(function(){
     $("#set").click(function(){
         alert("Your reminder has been set!");
         $("#remind").click();
+    });
+
+    $("#favorite").click(function(){
+        if ($(this).text() == 'Add to Favorites') {
+            $(this).text('Remove from Favorites');
+            url = document.URL;
+            ref = url.substring(url.indexOf('?') + 1, url.indexOf('='));
+            title = $('.head-text').text();
+            adv = $('#advantage').text();
+            if (adv.length > 50)
+                adv = adv.substring(0, 50) + '...'
+            localStorage.setItem(ref, title);
+            localStorage.setItem(ref + '_url', url);
+            localStorage.setItem(ref + '_adv', adv);
+        } else {
+            $(this).text('Add to Favorites');
+            localStorage.removeItem(ref);
+            localStorage.removeItem(ref + '_url');
+            localStorage.removeItem(ref + '_adv');
+        }
     });
 });

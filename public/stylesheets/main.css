@@ -197,3 +197,7 @@ body{
     margin-top:5px;
     margin-bottom:5px;
 }
+
+#favlist h5{
+    max-height: 30px;
+}
