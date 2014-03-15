@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    var collapsed = true;
 
     var url = document.URL;
     var ref = url.substring(url.indexOf('?') + 1, url.indexOf('='));
@@ -68,12 +67,19 @@ $(document).ready(function(){
         });
     });
 
-    $("#chevron").click(function(){
-        if (collapsed)
-            $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");   
-        else
+    var collapsed = true;
+    
+    $("#discount").click(function(){
+        if (collapsed){
+            $("#advantage").hide();
+            $("#advantage1").show();
+            $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
+        }
+        else{
+            $("#advantage1").hide();
+            $("#advantage").show();
             $("#chevron").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
-
+        }
         collapsed = !collapsed;
     });
     
