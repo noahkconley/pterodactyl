@@ -201,3 +201,7 @@ body{
 #favlist h5{
     max-height: 30px;
 }
+
+.desc{
+    padding:0px;   
+}
