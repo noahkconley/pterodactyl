@@ -74,7 +74,7 @@ function initialize() {
 
     //last marker used to record the ast marker opened so that
     //the other marker closes upon opening another one
-    var lastWindow;
+    var lastWindow; //= andysWindow;
 
     var marker = new google.maps.Marker({
       position: paneraBreadLatLng,
@@ -91,7 +91,7 @@ function initialize() {
       map: map,
       title: "Coldstone Creamery"
     });
-    
+
     var H = window.innerHeight - 110;
     H = H+"px";
     document.getElementById("map-canvas").style.height=H;
@@ -137,18 +137,24 @@ function handleNoGeolocation(errorFlag) {
     //click listener for opening panera info window
     google.maps.event.addListener(marker, 'click', function(){
         paneraWindow.open(map,marker);
-        andysWindow.close();
-        coldstoneWindow.close();
+        //andysWindow.close();
+        //coldstoneWindow.close();
+        if (lastWindow != null) lastWindow.close();
+        lastWindow = paneraWindow;
     });
     google.maps.event.addListener(marker1, 'click', function(){
         andysWindow.open(map,marker1);
-        paneraWindow.close();
-        coldstoneWindow.close();
+        //paneraWindow.close();
+        //coldstoneWindow.close();
+        if (lastWindow != null)lastWindow.close();
+        lastWindow = andysWindow;
     });
     google.maps.event.addListener(marker2, 'click', function(){
         coldstoneWindow.open(map,marker2);
-        andysWindow.close();
-        paneraWindow.close();
+        //andysWindow.close();
+        //paneraWindow.close();
+        if (lastWindow != null)lastWindow.close();
+        lastWindow = coldstoneWindow;
     });
 }
 
