@@ -203,9 +203,8 @@ body{
     max-height: 30px;
 }
 
-#adv_container{
-    padding-left: 15px;
-    padding-right: 15px;
+.desc{
+    padding:0px;   
 }
 
 .hidden{
