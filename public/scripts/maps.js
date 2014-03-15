@@ -1,10 +1,8 @@
 function initialize() {
     //coordinates for panera bread (map will center to this as well)
-    var paneraBreadLatLng = new google.maps.(42.0486, -87.6821);
+    var paneraBreadLatLng = new google.maps.LatLng(42.0486, -87.6821);
     var andysLatLng = new google.maps.LatLng(42.04855, -87.6814);
     var coldstoneLatLng = new google.maps.LatLng(42.04745, -87.6816);
-
-
 
     //remove all local listings (default setting on google maps)
     var locateStyle = [
@@ -74,6 +72,10 @@ function initialize() {
         content: coldstoneInfoWindowString
     });
 
+    //last marker used to record the ast marker opened so that
+    //the other marker closes upon opening another one
+    var lastWindow;
+
     var marker = new google.maps.Marker({
       position: paneraBreadLatLng,
       map: map,
@@ -90,9 +92,47 @@ function initialize() {
       title: "Coldstone Creamery"
     });
 
-    var H = window.innerHeight - 109;
+    var H = window.innerHeight - 134;
     H = H+"px";
     document.getElementById("map-canvas").style.height=H;
+
+    if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geoPos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
+
+      var geoInfowindow = new google.maps.InfoWindow({
+        map: map,
+        position: geoPos,
+        content: 'You are here.'
+      });
+
+      map.setCenter(geoPos);
+    }, function() {
+      handleNoGeolocation(true);
+    });
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
+
+
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'You are here.';
+  } else {
+    var content = 'You are here.';
+  }
+
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(42.050625, -87.679664),
+    content: content
+  };
+
+  var geoInfowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
+}
     
     //click listener for opening panera info window
     google.maps.event.addListener(marker, 'click', function(){
@@ -107,8 +147,8 @@ function initialize() {
     });
     google.maps.event.addListener(marker2, 'click', function(){
         coldstoneWindow.open(map,marker2);
-        paneraWindow.close();
         andysWindow.close();
+        paneraWindow.close();
     });
 }
 
