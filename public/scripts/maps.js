@@ -91,8 +91,8 @@ function initialize() {
       map: map,
       title: "Coldstone Creamery"
     });
-
-    var H = window.innerHeight - 134;
+    
+    var H = window.innerHeight - 110;
     H = H+"px";
     document.getElementById("map-canvas").style.height=H;
 
