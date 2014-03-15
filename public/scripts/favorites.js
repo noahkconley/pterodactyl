@@ -3,7 +3,7 @@ $(document).ready(function() {
 	for (i = 0; i <= 240; i++) {
 		if (localStorage.getItem('business_' + i) != null) {
 
-			$('#favlist').append('<li class="list-group-item">\n<img class="delete hidden" src="public/images/delete_button.png" alt="Delete"><a href="'+ localStorage.getItem('business_' + i + '_url') + '">\n<div class="row black">\n<div class="col-xs-8">\n<h4>'+ localStorage.getItem('business_' + i) + '</h6>\n</div>\n<div class="col-xs-4 desc">\n<h6>'+ localStorage.getItem('business_' + i + '_adv') + '</h5>\n</div>\n</div>\n</a>\n<div class="DeleteBox hidden">Delete</div></li>\n');
+			$('#favlist').append('<li class="list-group-item">\n<img class="delete hidden" src="public/images/delete_button.png" alt="Delete"><a href="'+ localStorage.getItem('business_' + i + '_url') + '">\n<div class="row black">\n<div class="col-xs-8">\n<h4>'+ localStorage.getItem('business_' + i) + '</h4>\n</div>\n<div class="col-xs-4">\n<h5>'+ localStorage.getItem('business_' + i + '_adv') + '</h5>\n</div>\n</div>\n</a>\n<div class="DeleteBox hidden">Delete</div></li>\n');
 		}
 	}
 	if ($('li').length == 0)
