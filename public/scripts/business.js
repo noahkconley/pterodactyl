@@ -22,7 +22,14 @@ $(document).ready(function(){
             var infoList = scrape[scrape.length - 6].getElementsByTagName('p');
             var users = scrape[scrape.length - 5].lastChild.textContent;
             // console.log(scrape[scrape.length - 4])
-            $('#advantage').html(scrape[scrape.length - 4].innerHTML);
+
+            var advContent = scrape[scrape.length - 4].innerHTML;
+            if (advContent.length > 48)
+                adv1 = advContent.substring(0, 48) + "..."    
+
+            $('#advantage').html(adv1);
+            $('#advantage1').html(advContent);
+
             for (var k = 0; k < infoList.length; k++) {
                 var current = infoList[k].textContent;
                 if (current.indexOf('Address:') > -1) {
@@ -39,13 +46,17 @@ $(document).ready(function(){
             }
             if (users.indexOf(': Yes') == 18) {
                 if (users.lastIndexOf(': Yes') == 161)
-                    $('#usergroup').html('All Cardholders');
+                    $('#usergroup').html('Available for: All Cardholders');
                 else
-                    $('#usergroup').html('Students Only');
+                    $('#usergroup').html('Available for: Students Only');
             } else
-                $('#usergroup').html('Faculty Only');
+                $('#usergroup').html('Available for: Faculty Only');
         }
     });
+
+    $("#DiscountToggle").click(function(){
+                $("collapseOne").hide();
+            });
 
     $('#marker').click(function () {
         $.ajax({
@@ -57,7 +68,7 @@ $(document).ready(function(){
         });
     });
 
-    $("#discount").click(function(){
+    $("#chevron").click(function(){
         if (collapsed)
             $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");   
         else
