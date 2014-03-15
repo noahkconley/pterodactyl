@@ -43,7 +43,11 @@
     
     <div class="row" id="search-bar"> <!-- Filter/Search Bar -->
       <div class="col-xs-3">
-        <button class="btn btn-default" type="button">Filter</button>
+        Organize by: <select>
+          <option value="abc">#ABC...</option>
+          <option value="cat">Category</option>
+          <option value="loc">Location</option>
+        </select>
       </div>
       <div class="input-group col-xs-9">
         <input type="text" class="form-control" placeholder="Names, Types, Places">
@@ -54,281 +58,481 @@
     </div> <!-- Search Bar -->
     <br>
 
+    <!-- List Entries -->
     <form name='browse'>
-      <!-- List Entries -->
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">#</div>
-            <ul class="list-group">
-            </ul>
+      <div id='abclist'>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">#</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">A</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">A</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">B</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">B</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">C</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">C</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">D</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">D</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">E</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">E</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">F</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">F</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">G</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">G</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">H</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">H</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">I</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">I</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">J</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">J</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">K</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">K</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">L</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">L</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">M</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">M</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">N</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">N</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">O</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">O</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">P</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">P</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">Q</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Q</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">R</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">R</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">S</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">S</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">T</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">T</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">U</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">U</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">V</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">V</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">W</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">W</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">X</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">X</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">Y</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Y</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">Z</div>
-            <ul class="list-group">
-            </ul>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Z</div>
+              <ul class="list-group">
+              </ul>
+            </div>
           </div>
         </div>
+        
       </div>
-      <!-- List Entries -->
+
+      <div id="catlist">
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Arts, Crafts, and Hobbies</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Automotive</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Beauty and Fitness</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Books, Cards, and Gifts</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Clothing and Accessories</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Electronics, Computers, and Communications</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Entertainment and Museums</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Florists</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Food and Restaurants</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Health Care</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Home Furnishings and Maintenance</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Laundry and Dry Cleaning</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Office Supplies and Services</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Professional Services</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Sporting Goods</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Travel Supplies and Services</div>
+          <ul class="list-group">
+          </ul>
+        </div>
+
+      </div>
+
+      <div id="loclist">
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Evnaston/Suburban</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Chicago</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">Online</div>
+              <ul class="list-group">
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
 
       <input id="gotobiz" type="submit" value="submit" formaction="business.html" style="display:none">
     </form>
+    <!-- List Entries -->
     
     <!-- Navbar Footer -->
     <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
