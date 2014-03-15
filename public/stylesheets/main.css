@@ -206,3 +206,12 @@ body{
     padding-left: 15px;
     padding-right: 15px;
 }
+
+.hidden{
+    display:none;
+}
+
+.deleteBox{
+    color:"white";
+    background-color: "red";
+}
