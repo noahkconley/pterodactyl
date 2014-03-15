@@ -85,6 +85,10 @@ a.linka { color: #520063;}
     color:#333;   
 }
 
+.category{
+    margin-bottom:0px;
+}
+
 body{
     font-family:'Roboto', Helvetica, Arial, sans-serif;  
     font-weight:400;
@@ -180,7 +184,7 @@ body{
 }
 
 .indent{
-    padding-left:20px;;
+    padding-left:20px;
     color:#989898 ;
     font-size: 12px;
 }
@@ -192,4 +196,13 @@ body{
 #set{
     margin-top:5px;
     margin-bottom:5px;
+}
+
+#favlist h5{
+    max-height: 30px;
+}
+
+#adv_container{
+    padding-left: 15px;
+    padding-right: 15px;
 }
