@@ -207,11 +207,7 @@ body{
     padding:0px;   
 }
 
-.hidden{
-    display:none;
-}
-
 .deleteBox{
     color:"white";
-    background-color: "red";
+    background-color: #ff0000;
 }
