@@ -13,13 +13,23 @@ $(document).ready(function() {
 
 	$(".delete").hide();
 	$(".DeleteBox").hide();
+	$("#done").hide();
 
-	$('#edit').click(function(){
+	$("#edit").click(function(){
 		$(".delete").toggle();
+		$("#edit").hide();
+		$("#done").show();
+	})
+
+	$("#done").click(function(){
+		$("#edit").show();
+		$("#done").hide();
+		$(".delete").hide();
+		$(".DeleteBox").hide();
 	})
 
 	$(".delete").click(function(){
-		$(this.id).toggle(); //not working
+		$("#"+this.id).toggle();
 		$("#dBox"+this.id).toggle();
 	})
 
