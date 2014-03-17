@@ -12,47 +12,47 @@ $(document).ready(function(){
     */
     var biz = decodeURIComponent(document.location);
     biz = biz.slice(biz.indexOf('=')+1);
-    $.getJSON(biz + '/?callback=?', 
-    /*$.ajax({
+    // $.getJSON(biz + '/?callback=?', 
+    $.ajax({
         url: biz,
         cache: false,
-        success:*/ function(data) {
-            console.log(data);
-            // var scrape = $("<div>").html(data)[0].getElementsByTagName('div');
-            // $('.head-text').html(scrape[22].getElementsByTagName('h2')[0].textContent);
-            // var infoList = scrape[scrape.length - 6].getElementsByTagName('p');
-            // var users = scrape[scrape.length - 5].lastChild.textContent;
-            // // console.log(scrape[scrape.length - 4])
+        success: function(data) {
+            // console.log(data);
+            var scrape = $("<div>").html(data)[0].getElementsByTagName('div');
+            $('.head-text').html(scrape[22].getElementsByTagName('h2')[0].textContent);
+            var infoList = scrape[scrape.length - 6].getElementsByTagName('p');
+            var users = scrape[scrape.length - 5].lastChild.textContent;
+            // console.log(scrape[scrape.length - 4])
 
-            // var advContent = scrape[scrape.length - 4].innerHTML;
-            // if (advContent.length > 48)
-            //     adv1 = advContent.substring(0, 48) + "..."    
+            var advContent = scrape[scrape.length - 4].innerHTML;
+            if (advContent.length > 48)
+                adv1 = advContent.substring(0, 48) + "..."    
 
-            // $('#advantage').html(adv1);
-            // $('#advantage1').html(advContent);
+            $('#advantage').html(adv1);
+            $('#advantage1').html(advContent);
 
-            // for (var k = 0; k < infoList.length; k++) {
-            //     var current = infoList[k].textContent;
-            //     if (current.indexOf('Address:') > -1) {
-            //         var addressInfo = infoList[k].childNodes;
-            //         $('#address').html('Address:<br>' + addressInfo[2].textContent + '<br>' + addressInfo[4].textContent);
-            //         $('#marker').prop('alt', addressInfo[6].href);
-            //     }
-            //     else if (current.indexOf('Phone:') > -1)
-            //         $('#phone').html(infoList[k].textContent);
-            //     else if (current.indexOf('Web Site:') > -1)
-            //         $('#website').html(infoList[k].textContent);
-            //     else if (current.indexOf('Email:') > -1)
-            //         $('#email').html(infoList[k].textContent);
-            // }
-            // if (users.indexOf(': Yes') == 18) {
-            //     if (users.lastIndexOf(': Yes') == 161)
-            //         $('#usergroup').html('Available for: All Cardholders');
-            //     else
-            //         $('#usergroup').html('Available for: Students Only');
-            // } else
-            //     $('#usergroup').html('Available for: Faculty Only');
-        // }
+            for (var k = 0; k < infoList.length; k++) {
+                var current = infoList[k].textContent;
+                if (current.indexOf('Address:') > -1) {
+                    var addressInfo = infoList[k].childNodes;
+                    $('#address').html('Address:<br>' + addressInfo[2].textContent + '<br>' + addressInfo[4].textContent);
+                    $('#marker').prop('alt', addressInfo[6].href);
+                }
+                else if (current.indexOf('Phone:') > -1)
+                    $('#phone').html(infoList[k].textContent);
+                else if (current.indexOf('Web Site:') > -1)
+                    $('#website').html(infoList[k].textContent);
+                else if (current.indexOf('Email:') > -1)
+                    $('#email').html(infoList[k].textContent);
+            }
+            if (users.indexOf(': Yes') == 18) {
+                if (users.lastIndexOf(': Yes') == 161)
+                    $('#usergroup').html('Available for: All Cardholders');
+                else
+                    $('#usergroup').html('Available for: Students Only');
+            } else
+                $('#usergroup').html('Available for: Faculty Only');
+        }
     });
 
     $("#DiscountToggle").click(function(){
