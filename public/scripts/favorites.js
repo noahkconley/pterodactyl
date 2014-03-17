@@ -6,7 +6,7 @@ $(document).ready(function() {
 	}
 
 	if ($('li').length == 0)
-		$('#favlist').after('<h4 style="text-align:center">Tap \"Add to Favorites\" on any business info screen to see it appear here');
+		$('#favlist').after('<h4 class="col-xs-11" style="text-align:center">Tap \"Add to Favorites\" on any business info screen to see it appear here');
 
 
 	$(".delete").hide();

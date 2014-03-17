@@ -12,52 +12,21 @@ $(document).ready(function(){
     */
     var biz = decodeURIComponent(document.location);
     biz = biz.slice(biz.indexOf('=')+1);
-    // $.getJSON(biz + '/?callback=?', 
-    $.ajax({
-        url: biz,
-        cache: false,
-        success: function(data) {
-            // console.log(data);
-            var scrape = $("<div>").html(data)[0].getElementsByTagName('div');
-            $('.head-text').html(scrape[22].getElementsByTagName('h2')[0].textContent);
-            var infoList = scrape[scrape.length - 6].getElementsByTagName('p');
-            var users = scrape[scrape.length - 5].lastChild.textContent;
-            // console.log(scrape[scrape.length - 4])
+    getInfo(biz);
 
-            var advContent = scrape[scrape.length - 4].innerHTML;
-            if (advContent.length > 48)
-                adv1 = advContent.substring(0, 48) + "..."    
-
-            $('#advantage').html(adv1);
-            $('#advantage1').html(advContent);
-
-            for (var k = 0; k < infoList.length; k++) {
-                var current = infoList[k].textContent;
-                if (current.indexOf('Address:') > -1) {
-                    var addressInfo = infoList[k].childNodes;
-                    $('#address').html('Address:<br>' + addressInfo[2].textContent + '<br>' + addressInfo[4].textContent);
-                    $('#marker').prop('alt', addressInfo[6].href);
-                }
-                else if (current.indexOf('Phone:') > -1)
-                    $('#phone').html(infoList[k].textContent);
-                else if (current.indexOf('Web Site:') > -1)
-                    $('#website').html(infoList[k].textContent);
-                else if (current.indexOf('Email:') > -1)
-                    $('#email').html(infoList[k].textContent);
-            }
-            if (users.indexOf(': Yes') == 18) {
-                if (users.lastIndexOf(': Yes') == 161)
-                    $('#usergroup').html('Available for: All Cardholders');
-                else
-                    $('#usergroup').html('Available for: Students Only');
-            } else
-                $('#usergroup').html('Available for: Faculty Only');
+    $('.collapseLink').click(function(){
+        if (collapsed){
+            $("#collapseOne").hide();
+            $("#collapseTwo").show();
+            $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
         }
+        else{
+            $("#collapseTwo").hide();
+            $("#collapseOne").show();
+            $("#chevron").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
+        }
+        collapsed = !collapsed;
     });
-
-    $("#DiscountToggle").click(function(){
-                $("collapseOne").hide();
-            });
 
     $('#marker').click(function () {
         $.ajax({
@@ -71,19 +40,19 @@ $(document).ready(function(){
 
     var collapsed = true;
     
-    $("#discount").click(function(){
-        if (collapsed){
-            $("#advantage").hide();
-            $("#advantage1").show();
-            $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
-        }
-        else{
-            $("#advantage1").hide();
-            $("#advantage").show();
-            $("#chevron").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
-        }
-        collapsed = !collapsed;
-    });
+    // $("#discount").click(function(){
+    //     if (collapsed){
+    //         $("#advantage").hide();
+    //         $("#advantage1").show();
+    //         $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
+    //     }
+    //     else{
+    //         $("#advantage1").hide();
+    //         $("#advantage").show();
+    //         $("#chevron").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
+    //     }
+    //     collapsed = !collapsed;
+    // });
     
     $("#set").click(function(){
         alert("Your reminder has been set!");
@@ -110,3 +79,61 @@ $(document).ready(function(){
         }
     });
 });
+
+function getInfo(biz) {
+    $.ajax({
+        url: "http://query.yahooapis.com/v1/public/yql?"+
+                "q=select%20*%20from%20html%20where%20url%3D%22"+
+                encodeURIComponent(biz)+
+                "%22&format=xml'&callback=?",
+        dataType: 'json',
+        success: function(data) {
+            $('#scrape').html(data.results[0]);
+        },
+        complete: function() {
+            postInfo();
+        }
+    });
+}
+
+function postInfo() {
+    text = $('#scrape .content').text().trim().split('\n\n');
+    title = text[0];
+    contact = text[1];
+    users = text[text.length-1];
+    $('.head-text').text(title.split('\n')[0]);
+
+    if (contact.indexOf('Address:') > -1) {
+        address = contact.split('\n');
+        $('#address').html(address[1] + '<br>' + address[2] + '<br>' + address[3]);
+    } if (contact.indexOf('Phone:') > -1) {
+        contact = contact.slice(contact.indexOf('Phone:'));
+        $('#phone').text(contact.split('\n')[0]);
+    } if (contact.indexOf('Web Site:') > -1) {
+        contact = contact.slice(contact.indexOf('Web Site:'));
+        $('#website').text(contact.split('\n')[0]);
+    } if (contact.indexOf('Email:') > -1) {
+        contact = contact.slice(contact.indexOf('Email:'));
+        $('#email').text(contact.split('\n')[0]);
+    } 
+
+    if (users.indexOf(': Yes') == 18) {
+        if (users.lastIndexOf(': Yes') == 140)
+            $('#usergroup').html('Available for: All Cardholders');
+        else
+            $('#usergroup').html('Available for: Students Only');
+    } else
+        $('#usergroup').html('Available for: Faculty Only');
+
+    var advContent = $('#scrape div:eq(26)').html();
+    if (advContent.length > 48) {
+        adv1 = advContent.substring(0, 48) + "...";
+        $('#advantage').html(adv1);
+        $('#advantage1').html(advContent);
+    } else {
+        $('#advantage').html(advContent);
+        $('#chevron').hide();
+    }
+
+    $('#marker').prop('alt', $('#scrape a:contains("map")').attr('href'));
+}
