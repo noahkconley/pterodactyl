@@ -14,6 +14,20 @@ $(document).ready(function(){
     biz = biz.slice(biz.indexOf('=')+1);
     getInfo(biz);
 
+    $('.collapseLink').click(function(){
+        if (collapsed){
+            $("#collapseOne").hide();
+            $("#collapseTwo").show();
+            $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
+        }
+        else{
+            $("#collapseTwo").hide();
+            $("#collapseOne").show();
+            $("#chevron").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
+        }
+        collapsed = !collapsed;
+    });
+
     $('#marker').click(function () {
         $.ajax({
             url: $(this).prop('alt'),
@@ -39,20 +53,6 @@ $(document).ready(function(){
     //     }
     //     collapsed = !collapsed;
     // });
-
-    $('.collapseLink').click(function(){
-        if (collapsed){
-            $("#collapseOne").hide();
-            $("#collapseTwo").show();
-            $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
-        }
-        else{
-            $("#collapseTwo").hide();
-            $("#collapseOne").show();
-            $("#chevron").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
-        }
-        collapsed = !collapsed;
-    });
     
     $("#set").click(function(){
         alert("Your reminder has been set!");
@@ -126,11 +126,14 @@ function postInfo() {
         $('#usergroup').html('Available for: Faculty Only');
 
     var advContent = $('#scrape div:eq(26)').html();
-    if (advContent.length > 48)
-        adv1 = advContent.substring(0, 48) + "..." 
-
-    $('#advantage').html(adv1);
-    $('#advantage1').html(advContent);
+    if (advContent.length > 48) {
+        adv1 = advContent.substring(0, 48) + "...";
+        $('#advantage').html(adv1);
+        $('#advantage1').html(advContent);
+    } else {
+        $('#advantage').html(advContent);
+        $('#chevron').hide();
+    }
 
     $('#marker').prop('alt', $('#scrape a:contains("map")').attr('href'));
 }
