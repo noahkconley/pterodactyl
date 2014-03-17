@@ -102,7 +102,7 @@ function initialize() {
     delayLoop();
     */
     
-    var intervalTimer = setInterval(function(){markerTimer()},500);
+    intervalTimer = setInterval(function(){markerTimer()},500);
 
     //map.fitBounds(latLngBounds);
 }
