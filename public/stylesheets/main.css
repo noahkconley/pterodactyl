@@ -1,4 +1,3 @@
-
 body{
     padding-bottom:80px;
 }
@@ -210,4 +209,17 @@ body{
 .deleteBox{
     color:"white";
     background-color: #ff0000;
+}
+
+#search-btn{
+    margin-right:0px;
+}
+
+#edit-btn{
+    margin-top:12px;
+    text-align:right;
+}
+
+.bottom div a{
+    padding:0px;   
 }
