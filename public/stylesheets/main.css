@@ -206,9 +206,15 @@ body{
     padding:0px;   
 }
 
-.deleteBox{
-    color:"white";
+.DeleteBox{
+    /*
+    color:white;
     background-color: #ff0000;
+    */
+    margin-top:30px;
+    font-size:10px;
+    padding-left:1px;
+    padding-right:1px;
 }
 
 #search-btn{
@@ -222,4 +228,13 @@ body{
 
 .bottom div a{
     padding:0px;   
+}
+
+.no-padding{
+    padding-left:0px;   
+    padding-right:0px;
+}
+
+.dels{
+    text-align:center;   
 }
