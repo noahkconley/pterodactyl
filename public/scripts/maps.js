@@ -1,8 +1,39 @@
+var latLngBounds = new google.maps.LatLngBounds();
+var hardinHall = new google.maps.LatLng(42.050625, -87.679664);
+var geocoder = new google.maps.Geocoder();
+var i = 0;
+var addressArray = [
+"527 Davis Street%20Evanston, IL 60201",  
+"800 Dempster St.%20Evanston, IL 60202",  
+"3500 W. Dempster St.%20Evanston, IL 60201",  
+"1724 Sherman Ave.%20Evanston, IL 60201",  
+"928 Chicago Ave.%20Evanston, IL 60202",  
+"1609 Sherman Avenue, Suite 208%20Evanston, IL 60201", 
+"915 Elmwood Ave.%20Evanston, IL 60202",  
+"1322 Chicago Ave.%20Evanston, IL 60201",  
+"907 1/2 Sherman Ave.%20Evanston, IL 60201",  
+"924 Davis St.%20Evanston, IL 60201",  
+"518 Davis St.%20Evanston, IL 60201",  
+"2114 Central St.%20Evanston, IL 60201",  
+"1712 Sherman Ave. Alley%20Evanston, IL 60201",  
+"1640 Orrington Ave%20Evanston, IL 60201",  
+"737 Chicago Ave.%20Evanston, IL 60202",  
+"719 Church Street%20Evanston, IL 60201",  
+"826 Noyes Street%20Evanston, IL 60201", 
+"160 E .Huron St.%20Chicago, IL, IL 60611",  
+"1511 Sherman Ave.%20Evanston, IL 60201",  
+"1212 Sherman Ave.%20Evanston, IL 60202", ]
+var markerArray = new Array();// holds markers for all 20 addresses
+
 function initialize() {
+
+
     //coordinates for panera bread (map will center to this as well)
+    
     var paneraBreadLatLng = new google.maps.LatLng(42.0486, -87.6821);
     var andysLatLng = new google.maps.LatLng(42.04855, -87.6814);
     var coldstoneLatLng = new google.maps.LatLng(42.04745, -87.6816);
+    
 
     //remove all local listings (default setting on google maps)
     var locateStyle = [
@@ -16,81 +47,14 @@ function initialize() {
     ];
 
     var mapOptions = {
-      center: paneraBreadLatLng,
-      zoom: 17,
+      center: hardinHall,
+      zoom: 18,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       styles: locateStyle
     };
 
-    var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+    map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
-    //this string is passed to the info box when it opens
-    //it takes html stuff, and is stylized by main.css
-    var paneraInfoWindowString = 
-      '<div id="content">'+
-      '<h4>Panera Bread</h4>'+
-      '<div id="windowBodyContent" style="width:150px">'+
-      '<p>'+
-      '10% off any purchase'+
-      '</p>'+
-      '<a href="business.html">'+
-      'More Information</a> '+
-      '</div>'+
-      '</div>';
-
-    var andysInfoWindowString = 
-      '<div id="content">'+
-      "<h4>Andy's Frozen Custard</h4>"+
-      '<div id="windowBodyContent" style="width:150px">'+
-      '<p>'+
-      '15% off any purchase'+
-      '</p>'+
-      '<a href="business.html">'+
-      'More Information</a> '+
-      '</div>'+
-      '</div>';
-
-    var coldstoneInfoWindowString = 
-      '<div id="content">'+
-      "<h4>Coldstone Creamery</h4>"+
-      '<div id="windowBodyContent" style="width:150px">'+
-      '<p>'+
-      '15% off any cup or cone'+
-      '</p>'+
-      '<a href="business.html">'+
-      'More Information</a> '+
-      '</div>'+
-      '</div>';
-
-    var paneraWindow =  new google.maps.InfoWindow({
-        content: paneraInfoWindowString
-    });
-    var andysWindow = new google.maps.InfoWindow({
-        content: andysInfoWindowString
-    });
-    var coldstoneWindow = new google.maps.InfoWindow({
-        content: coldstoneInfoWindowString
-    });
-
-    //last marker used to record the ast marker opened so that
-    //the other marker closes upon opening another one
-    var lastWindow; //= andysWindow;
-
-    var marker = new google.maps.Marker({
-      position: paneraBreadLatLng,
-      map: map,
-      title: 'Panera Bread'
-    });
-    var marker1 = new google.maps.Marker({
-      position: andysLatLng,
-      map: map,
-      title: "Andy's Frozen Custard"
-    });
-    var marker2 = new google.maps.Marker({
-      position: coldstoneLatLng,
-      map: map,
-      title: "Coldstone Creamery"
-    });
 
     var H = window.innerHeight - 110;
     H = H+"px";
@@ -101,21 +65,68 @@ function initialize() {
       var geoPos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
 
+      latLngBounds.extend(geoPos);
+
       var geoInfowindow = new google.maps.InfoWindow({
         map: map,
         position: geoPos,
         content: 'You are here.'
       });
-
       map.setCenter(geoPos);
-    }, function() {
-      handleNoGeolocation(true);
-    });
-  } else {
-    // Browser doesn't support Geolocation
-    handleNoGeolocation(false);
-  }
 
+      //map.setCenter(geoPos);
+        }, function() {
+           handleNoGeolocation(true);
+          });
+
+    } else {
+        // Browser doesn't support Geolocation
+        handleNoGeolocation(false);
+      }
+
+    if(document.cookie != ""){
+      address = document.cookie;
+      //console.log('The address is ' + document.cookie);
+      //address stored in cookie
+      codeAddress(document.cookie);
+    }
+
+
+    //begin drawing markers on map
+    /*
+    for(var i = 0; i<addressArray.length; i++){
+      codeAddress(addressArray[i]); //encode URI maybe?
+    }
+    */
+    /*
+    delayLoop();
+    */
+    
+    var intervalTimer = setInterval(function(){markerTimer()},500);
+
+    //map.fitBounds(latLngBounds);
+}
+/*
+function delayLoop() {
+  setTimeout(function(){
+    codeAddress(addressArray[i]); //encodeuri maybe?
+    i++;
+    console.log(addressArray.length);
+    console.log(addressArray[i]);
+    if( i < addressArray.length) delayLoop;
+  }, 300)
+}
+*/
+function markerTimer(){
+  if( i >= addressArray.length){
+    clearInterval(intervalTimer);
+    return;
+  }
+  console.log(addressArray[i]);
+  console.log(i);
+  codeAddress(addressArray[i]);
+  i++;
+}
 
 function handleNoGeolocation(errorFlag) {
   if (errorFlag) {
@@ -126,38 +137,35 @@ function handleNoGeolocation(errorFlag) {
 
   var options = {
     map: map,
-    position: new google.maps.LatLng(42.050625, -87.679664),
+    position: hardinHall,  //default position for demo
     content: content
   };
 
   var geoInfowindow = new google.maps.InfoWindow(options);
-  map.setCenter(options.position);
+
+  latLngBounds.extend(hardinHall);
+  map.setCenter(hardinHall);
 }
-    
-    //click listener for opening panera info window
-    google.maps.event.addListener(marker, 'click', function(){
-        paneraWindow.open(map,marker);
-        //andysWindow.close();
-        //coldstoneWindow.close();
-        if (lastWindow != null) lastWindow.close();
-        lastWindow = paneraWindow;
-    });
-    google.maps.event.addListener(marker1, 'click', function(){
-        andysWindow.open(map,marker1);
-        //paneraWindow.close();
-        //coldstoneWindow.close();
-        if (lastWindow != null)lastWindow.close();
-        lastWindow = andysWindow;
-    });
-    google.maps.event.addListener(marker2, 'click', function(){
-        coldstoneWindow.open(map,marker2);
-        //andysWindow.close();
-        //paneraWindow.close();
-        if (lastWindow != null)lastWindow.close();
-        lastWindow = coldstoneWindow;
-    });
+
+function codeAddress(address) {
+
+  geocoder.geocode( { 'address': decodeURI(address)}, function(results, status) {
+    if (status == google.maps.GeocoderStatus.OK) {
+      //map.setCenter(results[0].geometry.location);
+      var geoMarker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+      //add the geomarker to the markerArray
+      markerArray.push(geoMarker);
+      // add lat, lng to the bounds
+      latLngBounds.extend(geoMarker.position);
+    } else {
+      console.log('Geocode was not successful for the following reason: ' + status);
+    }
+  });
 }
+
 
 google.maps.event.addDomListener(window, 'load', initialize);
 
-    

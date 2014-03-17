@@ -59,6 +59,8 @@ $(document).ready(function() {
 // 			var nodeList = $("<div>").html(data)[0].getElementsByTagName('p')[i].getElementsByTagName('a');
 // 			for (var j = 0; j < nodeList.length; j++) {
 // 				var link = 'http://www.northwestern.edu/uservices/wildcard/advantage_discounts/businesses' + nodeList[j].href.slice(nodeList[j].href.lastIndexOf('/'));
+// 				//console.log(link);
+// 				//getAddresses(link); //console log the addresses (only works on google maps linked addresses)
 // 				var title = nodeList[j].text;
 // 				if (!(title.charAt(0) > 0))
 // 					$('#abclist .panel-heading:contains(' + title.charAt(0) + ')').next('ul').append('<li class="list-group-item">' + title + '<input class="bizlink" name="business_' + k + '" type="url" value="' + link + '" style="display:none" disabled></input></li>');
@@ -76,54 +78,65 @@ $(document).ready(function() {
 // 	}
 // });
 
-// function getCategories() {
-// 	$.ajax({
-// 		url: 'http://www.northwestern.edu/uservices/wildcard/advantage_discounts/category/index.html',
-// 		cache: false,
-// 		success: function(data) {
-// 			var nodeList = $("<div>").html(data)[0].getElementsByTagName('ul')[8];
-// 			for(var i = 0; i < 16; i++) {
-// 				link = nodeList.getElementsByTagName('a')[i].href;
-// 				link = 'http://www.northwestern.edu/uservices/wildcard/advantage_discounts/category' + link.slice(link.lastIndexOf('/'));
-// 				category = nodeList.getElementsByTagName('a')[i].textContent;
-// 				organizeCategory(link, category);
-// 			}
-// 		},
-// 		complete: function() {
-// 		 	$('#finishAjaxOne').attr('checked','checked');
-// 		 	fillCategory();
-// 		}
-// 	});
-// }
+function getAddresses(link) { //link is passed as string of individual page
+	$.ajax({
+		url: link,
+		cache: false,
+		success: function(data) {//do awesome stuff to log the address
+			//console.log(data);
+			//user $(this).attr("href");
+			console.log("\"" + data.split("maps.google.com/?q=")[1].split('">')[0]+ "\",") ;
+		}
+	})
+}
+ function getCategories() {
+ 	$.ajax({
+ 		url: 'http://www.northwestern.edu/uservices/wildcard/advantage_discounts/category/index.html',
+ 		cache: false,
+ 		success: function(data) {
+ 			var nodeList = $("<div>").html(data)[0].getElementsByTagName('ul')[8];
+ 			for(var i = 0; i < 16; i++) {
+ 				link = nodeList.getElementsByTagName('a')[i].href;
+ 				link = 'http://www.northwestern.edu/uservices/wildcard/advantage_discounts/category' + link.slice(link.lastIndexOf('/'));
+ 				category = nodeList.getElementsByTagName('a')[i].textContent;
+ 				organizeCategory(link, category);
+ 			}
+ 		},
+ 		complete: function() {
+ 		 	$('#finishAjaxOne').attr('checked','checked');
+ 		 	fillCategory();
+ 		}
+ 	});
+ }
 
-// function organizeCategory(link, category) {
-// 	$.ajax({
-// 		url: link,
-// 		cache: false,
-// 		success: function(data) {
-// 			var string = category + ', ' + link + '\n';
-// 			var bizList = $("<div>").html(data)[0].getElementsByTagName('ul')[8];
-// 			var nameList = bizList.getElementsByTagName('a');
-// 			var userList = bizList.getElementsByTagName('span');
-// 			for (var j = 0; j < nameList.length; j++) {
-// 				name = nameList[j].textContent;
-// 				if (name.lastIndexOf(' - ') != -1) {
-// 					loc = name.substring(name.lastIndexOf(' - ') + 3, name.length);
-// 					loc = loc.trim();
-// 					name = name.substring(0, name.lastIndexOf(' - '));
-// 				} else {
-// 					loc = 'Online';
-// 				}
-// 				name = name.trim();
-// 				string += name + ' = ';
-// 				string += '(' + $('.list-group-item:contains("' + name + '")').html() + ')\n';
-// 				$('.list-group-item:contains("' + name + '")').append('<span style="display:none">' + loc + '</span>');
-// 				$('.list-group-item:contains("' + name + '")').append('<span style="display:none">' + userList[j].textContent + '</span>');
-// 				$('.list-group-item:contains("' + name + '")').append('<span style="display:none">' + category + '</span>');
-// 			}
-// 		}
-// 	});
-// }
+ function organizeCategory(link, category) {
+ 	$.ajax({
+ 		url: link,
+ 		cache: false,
+ 		success: function(data) {
+ 			var string = category + ', ' + link + '\n';
+ 			var bizList = $("<div>").html(data)[0].getElementsByTagName('ul')[8];
+ 			var nameList = bizList.getElementsByTagName('a');
+ 			var userList = bizList.getElementsByTagName('span');
+ 			for (var j = 0; j < nameList.length; j++) {
+ 				name = nameList[j].textContent;
+ 				if (name.lastIndexOf(' - ') != -1) {
+ 					loc = name.substring(name.lastIndexOf(' - ') + 3, name.length);
+ 					loc = loc.trim();
+					name = name.substring(0, name.lastIndexOf(' - '));
+ 				} else {
+ 					loc = 'Online';
+ 				}
+ 				name = name.trim();
+ 				string += name + ' = ';
+ 				string += '(' + $('.list-group-item:contains("' + name + '")').html() + ')\n';
+ 				$('.list-group-item:contains("' + name + '")').append('<span style="display:none">' + loc + '</span>');
+ 				$('.list-group-item:contains("' + name + '")').append('<span style="display:none">' + userList[j].textContent + '</span>');
+ 				$('.list-group-item:contains("' + name + '")').append('<span style="display:none">' + category + '</span>');
+ 			}
+ 		}
+ 	});
+ }
 
 // $('#catlist .panel-heading').each(function() {
 // 	category = $(this).text();
