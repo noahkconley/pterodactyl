@@ -1,11 +1,9 @@
-
 $(document).ready(function() {
 	for (i = 0; i <= 240; i++) {
 		if (localStorage.getItem('business_' + i) != null) {
-			$('#favlist').append('<li class="list-group-item">\n<img id="dButton'+i+'" class="delete" src="public/images/delete_button.png" alt="Delete"><a href="'+ localStorage.getItem('business_' + i + '_url') + '">\n<div class="row black">\n<div class="col-xs-8">\n<h4>'+ localStorage.getItem('business_' + i) + '</h4>\n</div>\n<div class="col-xs-4 desc">\n<h6>'+ localStorage.getItem('business_' + i + '_adv') + '</h6>\n</div>\n</div>\n</a>\n<div id="dBoxdButton'+i+'" class="DeleteBox">Delete</div></li>\n');
+			$('#favlist').append('<li class="list-group-item row">\n<div class="dels no-padding"><img id="dButton'+i+'" class="delete" src="public/images/delete_button.png" alt="Delete"><button id="dBoxdButton'+i+'" class="DeleteBox purple">Sure?</button></div><a class="rest col-xs-12 row no-padding" href="'+ localStorage.getItem('business_' + i + '_url') + '">\n\n<div class="col-xs-8 black">\n<h4>'+ localStorage.getItem('business_' + i) + '</h4>\n</div>\n<div class="col-xs-4 desc black">\n<h6>'+ localStorage.getItem('business_' + i + '_adv') + '</h6>\n</div>\n</a>\n</li>\n');
 		}
 	}
-
 
 	if ($('li').length == 0)
 		$('#favlist').after('<h4 style="text-align:center">Tap \"Add to Favorites\" on any business info screen to see it appear here');
@@ -19,6 +17,8 @@ $(document).ready(function() {
 		$(".delete").toggle();
 		$("#edit").hide();
 		$("#done").show();
+        $(".dels").addClass("col-xs-1");
+        $(".rest").removeClass("col-xs-12").addClass("col-xs-11");
 	})
 
 	$("#done").click(function(){
@@ -26,6 +26,8 @@ $(document).ready(function() {
 		$("#done").hide();
 		$(".delete").hide();
 		$(".DeleteBox").hide();
+        $(".dels").removeClass("col-xs-1")
+        $(".rest").removeClass("col-xs-11").addClass("col-xs-12");
 	})
 
 	$(".delete").click(function(){
@@ -34,6 +36,15 @@ $(document).ready(function() {
 	})
 
 	$(".DeleteBox").click(function(){
-		//remove this business from the browser cache
+        var id = $(this).attr('id');
+        var index = id.substr(id.length - 3);
+        while (index.charAt(0) === "o" || index.charAt(0) === "n"){
+            index = index.substr(1);   
+        }
+        
+        localStorage.removeItem('business_' + index);
+        localStorage.removeItem('business_' + index + '_url');
+        localStorage.removeItem('business_' + index + '_adv');
+        location.reload();
 	})
 });

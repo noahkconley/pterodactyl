@@ -12,10 +12,12 @@ $(document).ready(function(){
     */
     var biz = decodeURIComponent(document.location);
     biz = biz.slice(biz.indexOf('=')+1);
+    // $.getJSON(biz + '/?callback=?', 
     $.ajax({
         url: biz,
         cache: false,
         success: function(data) {
+            // console.log(data);
             var scrape = $("<div>").html(data)[0].getElementsByTagName('div');
             $('.head-text').html(scrape[22].getElementsByTagName('h2')[0].textContent);
             var infoList = scrape[scrape.length - 6].getElementsByTagName('p');
