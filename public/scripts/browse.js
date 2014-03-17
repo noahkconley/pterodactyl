@@ -27,7 +27,7 @@ $(document).ready(function() {
 			$('#searchlist ul').empty();
 			$('#abclist, #catlist, #loclist, #wholist, #abcselect, #catselect, #locselect, #whoselect, #jump').hide();
 			$('#searchlist').show();
-			var text = $('.form-control').val();
+			var text = $('input.form-control').val();
 			var patt = new RegExp(text,'i');
 			var i = 0;
 			$('#abclist .list-group-item').each(function() {
