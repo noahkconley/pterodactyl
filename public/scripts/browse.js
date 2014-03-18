@@ -32,7 +32,7 @@ $(document).ready(function() {
 			var i = 0;
 			$('#abclist .list-group-item').each(function() {
 				if (patt.test($(this).text())) {
-					var item = $(this).clone();
+					var item = $(this).clone(true);
 					$('#searchlist ul').append(item);
 					i++;
 				}

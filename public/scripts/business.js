@@ -21,7 +21,7 @@ $(document).ready(function(){
             $("#chevron").removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
         }
         else{
-            $("#collapseTwo").hide();
+            $("#collapseTwo").slideUp();
             $("#collapseOne").show();
             $("#chevron").removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
         }
@@ -125,8 +125,15 @@ function postInfo() {
     } else
         $('#usergroup').html('Available for: Faculty Only');
 
-    var advContent = $('#scrape div:eq(26)').html();
-    if (advContent.length > 48) {
+    var advContent = $('#scrape div:eq(26)').html().trim();
+    if (advContent.indexOf('\n') > -1 && advContent.indexOf('\n') < 48) {
+        adv1 = advContent.substring(0, advContent.indexOf('\n')).replace('</','...</');
+        //adv1 = adv1.replace('</','...</')
+        $('#advantage').html(adv1);
+        $('#advantage1').html(advContent);
+        if ($('#advantage').text() == '')
+            $('#advantage').html('Tap here for info' + $('#advantage').html());
+    } else if (advContent.length > 48) {
         adv1 = advContent.substring(0, 48) + "...";
         $('#advantage').html(adv1);
         $('#advantage1').html(advContent);

@@ -238,3 +238,12 @@ body{
 .dels{
     text-align:center;   
 }
+
+.accordion-heading h4{
+    display: inline-block;
+    margin-right: 10px;
+}
+
+#chevron{
+    display: inline-block;
+}
